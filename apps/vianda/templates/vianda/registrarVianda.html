@@ -1,0 +1,66 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block titulo %}Registrar Vianda{% endblock %}
+{% block contenido %}
+{% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}  <div class="message" role="status">{{ message }}</div>{% endif %}
+            {% if message.tags == 'error' %}  <div class="errors" role="alert">{{ message }}</div>{% endif %}
+        {% endfor %}
+    {% endif %}
+    <h1>Creación de Programa</h1>
+    <form action="" method="post" >
+        <div class="campo">
+            {{ form.frecuencia.errors }}
+            <label for="{{ form.frecuencia.id_for_label}}">Frecuencia:</label>
+            {{ form.frecuencia }}
+          </div><br>
+
+        <div class="campo">
+            {{ form.tipoComida.errors }}
+            <label for="{{ form.frecuencia.id_for_label}}">Tipo de comida:</label>
+            {{ form.tipoComida }}
+          </div><br>
+
+        <div class="campo">
+            {{ form.fecha_inicio.errors }}
+            <label for="{{ form.fecha_inicio.id_for_label}}">Fecha de inicio:</label>
+            {{ form.fecha_inicio }}
+          </div><br>
+
+
+
+        <div class="campo">
+            {{ form.cantidad_vianda.errors }}
+            <label for="{{ form.cantidad_vianda.id_for_label}}">Cantidad de vianda:</label>
+            {{ form.cantidad_vianda }}
+          </div><br>
+
+        <div class="campo" >
+            {{ form.estado.errors }}
+            <label for="{{ form.estado.id_for_label}}">Estado:</label>
+            {{ form.estado }}
+          </div><br>
+
+        <div class="campo">
+            {{ form.tipo_platos.errors }}
+            <label for="{{ form.tipo_platos.id_for_label}}">Tipo de plato:</label>
+            {{ form.tipo_platos }}
+          </div><br>
+
+        <div class="campo">
+            <input type="hidden" name="usuario" value="{{ user.id }}">
+          </div><br>
+
+
+<!--        {% for field in form %}-->
+<!--          <div class="campo">-->
+<!--            {{ field.errors }}-->
+<!--            {{ field.label_tag }} {{ field }}-->
+<!--          </div><br>-->
+<!--        {% endfor %}-->
+      {% csrf_token %}
+      <input type="submit" value="Guardar">
+    </form>
+{% endblock %}
+{% block js %}{% endblock %}

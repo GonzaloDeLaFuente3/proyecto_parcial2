@@ -16,10 +16,10 @@
                   <li class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"><a href="/">Index</a></li>
                    {% if user.is_authenticated %}
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">XXX</a>
+                        <a href="javascript:void(0)" class="dropbtn">Vianda</a>
                         <div class="dropdown-content">
-                          <a href="">Listar</a>
-                          <a href="">Crear</a>
+                          <a href="{% url 'vianda:listar_vianda' %}">Listar</a>
+                          <a href="{% url 'vianda:registrar_vianda' %}">Crear</a>
                         </div>
                     </li>
                     {% endif %}
@@ -39,4 +39,5 @@
             </footer>
         </div>
     </body>
+    {% block js %}{% endblock %}
 </html>
